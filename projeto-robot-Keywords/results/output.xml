@@ -1,0 +1,1231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-20T19:52:30.693538" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\projetosRobot\projeto-robot-User-Keywords20.08as16h45m\tests">
+<suite id="s1-s1" name="Keyword.Resource" source="C:\projetosRobot\projeto-robot-User-Keywords20.08as16h45m\tests\keyword.resource.robot">
+<test id="s1-s1-t1" name="CT01-Realizar Login ADMIN" line="11">
+<kw name="Criar Sessao" owner="keyword">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.027267" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.027016" elapsed="0.000294"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.027653" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.027406" elapsed="0.000411"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.026546" elapsed="0.001327"/>
+</kw>
+<kw name="Realizar Login ADMIN" owner="keyword">
+<kw name="Criar Sessao" owner="keyword">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.028619" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.028501" elapsed="0.000135"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.028841" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.028695" elapsed="0.000233"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.028383" elapsed="0.000583"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.029145" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<var>${body}</var>
+<arg>mail=${EMAIL}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.029023" elapsed="0.000137"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.029284" level="INFO">{'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.029216" elapsed="0.000097"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.088051" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login/ 
+ path_url=/api/login/ 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '58'} 
+ body=b'{"mail": "sysadmin@qacoders.com", "password": "1234@Test"}' 
+ </msg>
+<msg time="2025-08-20T19:52:31.088166" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login/ 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '55', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 20 Aug 2025 22:52:31 GMT', 'Etag': 'W/"37-9q6p8iabt/LayQQx7+su7bYXDck"', 'X-Powered-By': 'Express'} 
+ body={"alert":"E-mail ou senha informados são inválidos."} 
+ </msg>
+<msg time="2025-08-20T19:52:31.088344" level="FAIL">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login/</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-20T19:52:31.029368" elapsed="0.062535">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.092055" elapsed="0.000020"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${TOKEN}</var>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.092134" elapsed="0.000012"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.092200" elapsed="0.000011"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${user_id}</var>
+<arg>${resposta.json()['user']['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.092253" elapsed="0.000019"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${user_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.092337" elapsed="0.000010"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.028220" elapsed="0.064210">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<kw name="Validar token Autorizacao" owner="keyword">
+<status status="NOT RUN" start="2025-08-20T19:52:31.092948" elapsed="0.000027"/>
+</kw>
+<kw name="Criar Sessao autorizada" owner="keyword">
+<status status="NOT RUN" start="2025-08-20T19:52:31.093183" elapsed="0.000016"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.025836" elapsed="0.067715">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</test>
+<test id="s1-s1-t2" name="CT02-Cadastrar novo usuário" line="17">
+<kw name="Realizar Login ADMIN" owner="keyword">
+<kw name="Criar Sessao" owner="keyword">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.095821" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.095688" elapsed="0.000154"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.096092" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.095916" elapsed="0.000296"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.095529" elapsed="0.000910"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.096685" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<var>${body}</var>
+<arg>mail=${EMAIL}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.096519" elapsed="0.000187"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.096875" level="INFO">{'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.096793" elapsed="0.000156"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.141979" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login/ 
+ path_url=/api/login/ 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '58'} 
+ body=b'{"mail": "sysadmin@qacoders.com", "password": "1234@Test"}' 
+ </msg>
+<msg time="2025-08-20T19:52:31.142124" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login/ 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '55', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 20 Aug 2025 22:52:31 GMT', 'Etag': 'W/"37-9q6p8iabt/LayQQx7+su7bYXDck"', 'X-Powered-By': 'Express'} 
+ body={"alert":"E-mail ou senha informados são inválidos."} 
+ </msg>
+<msg time="2025-08-20T19:52:31.142310" level="FAIL">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login/</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-20T19:52:31.097007" elapsed="0.050320">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.147557" elapsed="0.000029"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${TOKEN}</var>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.147765" elapsed="0.000037"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.147905" elapsed="0.000015"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${user_id}</var>
+<arg>${resposta.json()['user']['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.147979" elapsed="0.000011"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${user_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.148047" elapsed="0.000010"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.095324" elapsed="0.052815">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<kw name="Cadastrar Novo Usuario e Salvar ID" owner="keyword">
+<status status="NOT RUN" start="2025-08-20T19:52:31.148543" elapsed="0.000026"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.094883" elapsed="0.053909">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</test>
+<test id="s1-s1-t3" name="CT03-Login novo usuario" line="21">
+<kw name="Realizar Login usuario" owner="keyword">
+<kw name="Criar Sessao" owner="keyword">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.150262" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.150095" elapsed="0.000192"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.150581" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.150372" elapsed="0.000346"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.149931" elapsed="0.000845"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.151040" level="INFO">${body} = {'mail': 'maral0@uol.com.br', 'password': 'marail#Ca10'}</msg>
+<var>${body}</var>
+<arg>mail=maral0@uol.com.br</arg>
+<arg>password=marail#Ca10</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.150853" elapsed="0.000208"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.197987" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '56'} 
+ body=b'{"mail": "maral0@uol.com.br", "password": "marail#Ca10"}' 
+ </msg>
+<msg time="2025-08-20T19:52:31.198084" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '55', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 20 Aug 2025 22:52:31 GMT', 'Etag': 'W/"37-9q6p8iabt/LayQQx7+su7bYXDck"', 'X-Powered-By': 'Express'} 
+ body={"alert":"E-mail ou senha informados são inválidos."} 
+ </msg>
+<msg time="2025-08-20T19:52:31.198190" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-20T19:52:31.151135" elapsed="0.054070">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.205371" elapsed="0.000028"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_EMAIL}</arg>
+<arg>${resposta.json()["user"]["mail"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.205463" elapsed="0.000012"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_TOKEN}</arg>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.205527" elapsed="0.000010"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_ID}</arg>
+<arg>${resposta.json()["user"]["_id"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.205584" elapsed="0.000010"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.149720" elapsed="0.056081">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.149278" elapsed="0.056949">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</test>
+<status status="FAIL" start="2025-08-20T19:52:30.724477" elapsed="0.482734"/>
+</suite>
+<suite id="s1-s2" name="User.Resource" source="C:\projetosRobot\projeto-robot-User-Keywords20.08as16h45m\tests\user.resource.robot">
+<test id="s1-s2-t1" name="CT01-Realizar Login ADMIN" line="12">
+<kw name="Criar Sessao" owner="user">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.216659" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.216387" elapsed="0.000313"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.217024" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.216811" elapsed="0.000363"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.216086" elapsed="0.001148"/>
+</kw>
+<kw name="Realizar Login ADMIN" owner="user">
+<kw name="Criar Sessao" owner="user">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.218704" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.218495" elapsed="0.000242"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.219089" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.218831" elapsed="0.000415"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.218289" elapsed="0.001019"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.219610" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<var>${body}</var>
+<arg>mail=${EMAIL}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.219398" elapsed="0.000268"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.219893" level="INFO">{'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.219773" elapsed="0.000162"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.276376" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login/ 
+ path_url=/api/login/ 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '58'} 
+ body=b'{"mail": "sysadmin@qacoders.com", "password": "1234@Test"}' 
+ </msg>
+<msg time="2025-08-20T19:52:31.276485" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login/ 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '55', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 20 Aug 2025 22:52:32 GMT', 'Etag': 'W/"37-9q6p8iabt/LayQQx7+su7bYXDck"', 'X-Powered-By': 'Express'} 
+ body={"alert":"E-mail ou senha informados são inválidos."} 
+ </msg>
+<msg time="2025-08-20T19:52:31.276616" level="FAIL">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login/</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-20T19:52:31.220015" elapsed="0.059476">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.279666" elapsed="0.000024"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${TOKEN}</var>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.279755" elapsed="0.000011"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.279835" elapsed="0.000012"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${user_id}</var>
+<arg>${resposta.json()['user']['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.279901" elapsed="0.000011"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${user_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.279980" elapsed="0.000014"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.217826" elapsed="0.062311">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<kw name="Validar token Autorizacao" owner="user">
+<status status="NOT RUN" start="2025-08-20T19:52:31.280825" elapsed="0.000065"/>
+</kw>
+<kw name="Criar Sessao autorizada" owner="user">
+<status status="NOT RUN" start="2025-08-20T19:52:31.281400" elapsed="0.000032"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.215417" elapsed="0.066354">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</test>
+<test id="s1-s2-t2" name="CT02-Cadastrar novo usuário" line="18">
+<kw name="Realizar Login ADMIN" owner="user">
+<kw name="Criar Sessao" owner="user">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.284875" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.284537" elapsed="0.000403"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.285557" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.285144" elapsed="0.000745"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.284079" elapsed="0.001898"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.286317" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<var>${body}</var>
+<arg>mail=${EMAIL}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.286074" elapsed="0.000268"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.286600" level="INFO">{'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.286498" elapsed="0.000143"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.337853" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login/ 
+ path_url=/api/login/ 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '58'} 
+ body=b'{"mail": "sysadmin@qacoders.com", "password": "1234@Test"}' 
+ </msg>
+<msg time="2025-08-20T19:52:31.337940" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login/ 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '55', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 20 Aug 2025 22:52:32 GMT', 'Etag': 'W/"37-9q6p8iabt/LayQQx7+su7bYXDck"', 'X-Powered-By': 'Express'} 
+ body={"alert":"E-mail ou senha informados são inválidos."} 
+ </msg>
+<msg time="2025-08-20T19:52:31.338058" level="FAIL">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login/</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-20T19:52:31.286741" elapsed="0.055357">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.342344" elapsed="0.000032"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${TOKEN}</var>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.342473" elapsed="0.000016"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.342583" elapsed="0.000015"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${user_id}</var>
+<arg>${resposta.json()['user']['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.342678" elapsed="0.000018"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${user_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.342770" elapsed="0.000014"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.283700" elapsed="0.059316">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<kw name="Cadastrar Novo Usuario e Salvar ID" owner="user">
+<status status="NOT RUN" start="2025-08-20T19:52:31.343951" elapsed="0.000059"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.282989" elapsed="0.061372">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</test>
+<test id="s1-s2-t3" name="CT03-Login novo usuario" line="22">
+<kw name="Realizar Login usuario" owner="user">
+<kw name="Criar Sessao" owner="user">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.346483" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.346283" elapsed="0.000227"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.346759" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.346591" elapsed="0.000280"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.346093" elapsed="0.000821"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.347124" level="INFO">${body} = {'mail': 'maral0@uol.com.br', 'password': 'marail#Ca10'}</msg>
+<var>${body}</var>
+<arg>mail=maral0@uol.com.br</arg>
+<arg>password=marail#Ca10</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.346977" elapsed="0.000167"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.403177" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '56'} 
+ body=b'{"mail": "maral0@uol.com.br", "password": "marail#Ca10"}' 
+ </msg>
+<msg time="2025-08-20T19:52:31.403431" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '55', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 20 Aug 2025 22:52:32 GMT', 'Etag': 'W/"37-9q6p8iabt/LayQQx7+su7bYXDck"', 'X-Powered-By': 'Express'} 
+ body={"alert":"E-mail ou senha informados são inválidos."} 
+ </msg>
+<msg time="2025-08-20T19:52:31.403776" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-20T19:52:31.347217" elapsed="0.059906">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.407314" elapsed="0.000037"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_EMAIL}</arg>
+<arg>${resposta.json()["user"]["mail"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.407431" elapsed="0.000012"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_TOKEN}</arg>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.407499" elapsed="0.000010"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_ID}</arg>
+<arg>${resposta.json()["user"]["_id"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.407680" elapsed="0.000015"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.345813" elapsed="0.062085">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.345240" elapsed="0.063064">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</test>
+<test id="s1-s2-t4" name="CT04-Listar todos os cadastros" line="25">
+<kw name="Listar todos os cadastros" owner="user">
+<kw name="Realizar Login usuario" owner="user">
+<kw name="Criar Sessao" owner="user">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.411620" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.411434" elapsed="0.000224"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.412078" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.411815" elapsed="0.000418"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.411220" elapsed="0.001116"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.412698" level="INFO">${body} = {'mail': 'maral0@uol.com.br', 'password': 'marail#Ca10'}</msg>
+<var>${body}</var>
+<arg>mail=maral0@uol.com.br</arg>
+<arg>password=marail#Ca10</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.412431" elapsed="0.000307"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.499555" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '56'} 
+ body=b'{"mail": "maral0@uol.com.br", "password": "marail#Ca10"}' 
+ </msg>
+<msg time="2025-08-20T19:52:31.499630" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '55', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 20 Aug 2025 22:52:32 GMT', 'Etag': 'W/"37-9q6p8iabt/LayQQx7+su7bYXDck"', 'X-Powered-By': 'Express'} 
+ body={"alert":"E-mail ou senha informados são inválidos."} 
+ </msg>
+<msg time="2025-08-20T19:52:31.499781" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-20T19:52:31.412852" elapsed="0.089969">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.502984" elapsed="0.000022"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_EMAIL}</arg>
+<arg>${resposta.json()["user"]["mail"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.503084" elapsed="0.000012"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_TOKEN}</arg>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.503146" elapsed="0.000010"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_ID}</arg>
+<arg>${resposta.json()["user"]["_id"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.503199" elapsed="0.000009"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.411010" elapsed="0.092271">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/user/</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.503339" elapsed="0.000012"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.503402" elapsed="0.000010"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${resposta.json()[0]}</arg>
+<arg>fullName</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.503457" elapsed="0.000013"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.410725" elapsed="0.092806">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.410003" elapsed="0.093977">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</test>
+<test id="s1-s2-t5" name="CT05-Contar usuarios cadastrados" line="28">
+<kw name="Contar usuarios cadastrados" owner="user">
+<kw name="Realizar Login usuario" owner="user">
+<kw name="Criar Sessao" owner="user">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.506030" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.505895" elapsed="0.000155"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.506299" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.506121" elapsed="0.000284"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.505769" elapsed="0.000681"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.506698" level="INFO">${body} = {'mail': 'maral0@uol.com.br', 'password': 'marail#Ca10'}</msg>
+<var>${body}</var>
+<arg>mail=maral0@uol.com.br</arg>
+<arg>password=marail#Ca10</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.506512" elapsed="0.000224"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.600173" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '56'} 
+ body=b'{"mail": "maral0@uol.com.br", "password": "marail#Ca10"}' 
+ </msg>
+<msg time="2025-08-20T19:52:31.600261" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '55', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 20 Aug 2025 22:52:32 GMT', 'Etag': 'W/"37-9q6p8iabt/LayQQx7+su7bYXDck"', 'X-Powered-By': 'Express'} 
+ body={"alert":"E-mail ou senha informados são inválidos."} 
+ </msg>
+<msg time="2025-08-20T19:52:31.600429" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-20T19:52:31.506857" elapsed="0.095983">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.602983" elapsed="0.000020"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_EMAIL}</arg>
+<arg>${resposta.json()["user"]["mail"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.603062" elapsed="0.000011"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_TOKEN}</arg>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.603119" elapsed="0.000009"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_ID}</arg>
+<arg>${resposta.json()["user"]["_id"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.603170" elapsed="0.000009"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.505625" elapsed="0.097673">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/user/count</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.603392" elapsed="0.000014"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.603465" elapsed="0.000009"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${resposta.json()}</arg>
+<arg>count</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.603514" elapsed="0.000009"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${quantidade}</var>
+<arg>${resposta.json()}</arg>
+<arg>count</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.603562" elapsed="0.000009"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Quantidade de usuários cadastrados: ${quantidade}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.603611" elapsed="0.000009"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.505437" elapsed="0.098228">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.505045" elapsed="0.099175">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</test>
+<test id="s1-s2-t6" name="CT06-Consultar usuario cadastrado pelo ID" line="31">
+<kw name="Consultar usuario cadastrado pelo ID" owner="user">
+<kw name="Realizar Login usuario" owner="user">
+<kw name="Criar Sessao" owner="user">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.606882" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.606749" elapsed="0.000154"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.607160" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.606982" elapsed="0.000283"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.606616" elapsed="0.000693"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.607511" level="INFO">${body} = {'mail': 'maral0@uol.com.br', 'password': 'marail#Ca10'}</msg>
+<var>${body}</var>
+<arg>mail=maral0@uol.com.br</arg>
+<arg>password=marail#Ca10</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.607398" elapsed="0.000129"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.702498" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '56'} 
+ body=b'{"mail": "maral0@uol.com.br", "password": "marail#Ca10"}' 
+ </msg>
+<msg time="2025-08-20T19:52:31.702563" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '55', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 20 Aug 2025 22:52:32 GMT', 'Etag': 'W/"37-9q6p8iabt/LayQQx7+su7bYXDck"', 'X-Powered-By': 'Express'} 
+ body={"alert":"E-mail ou senha informados são inválidos."} 
+ </msg>
+<msg time="2025-08-20T19:52:31.702653" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-20T19:52:31.607588" elapsed="0.097344">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.705112" elapsed="0.000022"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_EMAIL}</arg>
+<arg>${resposta.json()["user"]["mail"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.705194" elapsed="0.000010"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_TOKEN}</arg>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.705248" elapsed="0.000009"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_ID}</arg>
+<arg>${resposta.json()["user"]["_id"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.705436" elapsed="0.000015"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.606494" elapsed="0.099037">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/user/${USER_ID}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.705618" elapsed="0.000014"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.705683" elapsed="0.000010"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${resposta.json()}</arg>
+<arg>_id</arg>
+<arg>${USER_ID}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.705736" elapsed="0.000010"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.606285" elapsed="0.099511">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.605697" elapsed="0.100579">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</test>
+<test id="s1-s2-t7" name="CT07-Editar cadastro de usuario" line="34">
+<kw name="Editar cadastro de usuario" owner="user">
+<kw name="Realizar Login usuario" owner="user">
+<msg time="2025-08-20T19:52:31.708209" level="FAIL">Variable '${body}' not found.</msg>
+<arg>${body}=</arg>
+<arg>Create Dictionary</arg>
+<arg>fullName=Sinara Madura</arg>
+<arg>mail=sinara2@teste.com</arg>
+<status status="FAIL" start="2025-08-20T19:52:31.707507" elapsed="0.000733">Variable '${body}' not found.</status>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/user/${USER_ID}</arg>
+<arg>json=${body}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.708329" elapsed="0.000016"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.708412" elapsed="0.000011"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${resposta.json()}</arg>
+<arg>msg</arg>
+<arg>Dados atualizados com sucesso!</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.708501" elapsed="0.000012"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.707283" elapsed="0.001289">Variable '${body}' not found.</status>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.707001" elapsed="0.001778">Variable '${body}' not found.</status>
+</test>
+<test id="s1-s2-t8" name="CT08-Editar password de usuario" line="37">
+<kw name="Editar password de usuario" owner="user">
+<kw name="Realizar Login usuario" owner="user">
+<kw name="Criar Sessao" owner="user">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.710662" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.710436" elapsed="0.000253"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.711006" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.710789" elapsed="0.000344"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.710245" elapsed="0.000939"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.711400" level="INFO">${body} = {'mail': 'maral0@uol.com.br', 'password': 'marail#Ca10'}</msg>
+<var>${body}</var>
+<arg>mail=maral0@uol.com.br</arg>
+<arg>password=marail#Ca10</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.711257" elapsed="0.000160"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.759869" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '56'} 
+ body=b'{"mail": "maral0@uol.com.br", "password": "marail#Ca10"}' 
+ </msg>
+<msg time="2025-08-20T19:52:31.759948" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '55', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 20 Aug 2025 22:52:32 GMT', 'Etag': 'W/"37-9q6p8iabt/LayQQx7+su7bYXDck"', 'X-Powered-By': 'Express'} 
+ body={"alert":"E-mail ou senha informados são inválidos."} 
+ </msg>
+<msg time="2025-08-20T19:52:31.760097" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-20T19:52:31.711514" elapsed="0.051002">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.762669" elapsed="0.000021"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_EMAIL}</arg>
+<arg>${resposta.json()["user"]["mail"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.762753" elapsed="0.000012"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_TOKEN}</arg>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.762813" elapsed="0.000010"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${USER_ID}</arg>
+<arg>${resposta.json()["user"]["_id"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.762867" elapsed="0.000011"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.710042" elapsed="0.052911">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<kw name="Consultar usuario cadastrado pelo ID" owner="user">
+<status status="NOT RUN" start="2025-08-20T19:52:31.763064" elapsed="0.000019"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>${body}</var>
+<arg>password=sinara01#S4</arg>
+<arg>confirmPassword=sinara01#S4</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.763139" elapsed="0.000064"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/user/password/${USER_ID}</arg>
+<arg>json=${body}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.763264" elapsed="0.000021"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.763338" elapsed="0.000010"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${resposta.json()}</arg>
+<arg>msg</arg>
+<arg>Senha atualizada com sucesso!</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.763391" elapsed="0.000011"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.709769" elapsed="0.053695">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.709348" elapsed="0.054511">HTTPError: 400 Client Error: Bad Request for url: https://api-shogun.qacoders.dev.br/api/login</status>
+</test>
+<test id="s1-s2-t9" name="CT09-Editar status de usuario" line="40">
+<kw name="Realizar Login ADMIN" owner="user">
+<kw name="Criar Sessao" owner="user">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.765932" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.765788" elapsed="0.000164"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.766241" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.766042" elapsed="0.000315"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.765618" elapsed="0.000795"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.766720" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<var>${body}</var>
+<arg>mail=${EMAIL}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.766491" elapsed="0.000246"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.766875" level="INFO">{'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.766802" elapsed="0.000097"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.810282" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login/ 
+ path_url=/api/login/ 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '58'} 
+ body=b'{"mail": "sysadmin@qacoders.com", "password": "1234@Test"}' 
+ </msg>
+<msg time="2025-08-20T19:52:31.810353" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login/ 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '55', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 20 Aug 2025 22:52:32 GMT', 'Etag': 'W/"37-9q6p8iabt/LayQQx7+su7bYXDck"', 'X-Powered-By': 'Express'} 
+ body={"alert":"E-mail ou senha informados são inválidos."} 
+ </msg>
+<msg time="2025-08-20T19:52:31.810461" level="FAIL">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login/</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-20T19:52:31.766952" elapsed="0.046744">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.813877" elapsed="0.000025"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${TOKEN}</var>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.813974" elapsed="0.000013"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.814057" elapsed="0.000012"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${user_id}</var>
+<arg>${resposta.json()['user']['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.814121" elapsed="0.000012"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${user_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.814208" elapsed="0.000013"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.765319" elapsed="0.049148">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.764779" elapsed="0.050145">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</test>
+<test id="s1-s2-t10" name="CT10-Deletar usuario pelo ID" line="43">
+<kw name="Deletar usuario pelo ID" owner="user">
+<kw name="Realizar Login ADMIN" owner="user">
+<kw name="Criar Sessao" owner="user">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.817685" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.817494" elapsed="0.000225"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.818139" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-20T19:52:31.817866" elapsed="0.000519"/>
+</kw>
+<status status="PASS" start="2025-08-20T19:52:31.817220" elapsed="0.001249"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.818709" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<var>${body}</var>
+<arg>mail=${EMAIL}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.818543" elapsed="0.000181"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-20T19:52:31.818942" level="INFO">{'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-20T19:52:31.818857" elapsed="0.000111"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-20T19:52:31.870277" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login/ 
+ path_url=/api/login/ 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '58'} 
+ body=b'{"mail": "sysadmin@qacoders.com", "password": "1234@Test"}' 
+ </msg>
+<msg time="2025-08-20T19:52:31.870345" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login/ 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '55', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 20 Aug 2025 22:52:32 GMT', 'Etag': 'W/"37-9q6p8iabt/LayQQx7+su7bYXDck"', 'X-Powered-By': 'Express'} 
+ body={"alert":"E-mail ou senha informados são inválidos."} 
+ </msg>
+<msg time="2025-08-20T19:52:31.870430" level="FAIL">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login/</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-08-20T19:52:31.819020" elapsed="0.053794">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.872960" elapsed="0.000022"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${TOKEN}</var>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.873037" elapsed="0.000010"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.873100" elapsed="0.000010"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${user_id}</var>
+<arg>${resposta.json()['user']['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.873152" elapsed="0.000009"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${user_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.873223" elapsed="0.000009"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.817011" elapsed="0.056290">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<kw name="Cadastrar Novo Usuario e Salvar ID" owner="user">
+<status status="NOT RUN" start="2025-08-20T19:52:31.873432" elapsed="0.000033"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/user/${USER_ID}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.873516" elapsed="0.000011"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.873637" elapsed="0.000011"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${resposta.json()}</arg>
+<arg>msg</arg>
+<arg>Usuário deletado com sucesso!.</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-08-20T19:52:31.873706" elapsed="0.000011"/>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.816680" elapsed="0.057096">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</kw>
+<status status="FAIL" start="2025-08-20T19:52:31.815897" elapsed="0.058629">Url: https://api-shogun.qacoders.dev.br/api/login/ Expected status: 400 != 200</status>
+</test>
+<status status="FAIL" start="2025-08-20T19:52:31.208526" elapsed="0.667496"/>
+</suite>
+<status status="FAIL" start="2025-08-20T19:52:30.695672" elapsed="1.181691"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="13" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="0" fail="13" skip="0">Tests</stat>
+<stat name="Keyword.Resource" id="s1-s1" pass="0" fail="3" skip="0">Tests.Keyword.Resource</stat>
+<stat name="User.Resource" id="s1-s2" pass="0" fail="10" skip="0">Tests.User.Resource</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

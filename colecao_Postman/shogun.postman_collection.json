@@ -1,0 +1,3287 @@
+{
+	"info": {
+		"_postman_id": "9eb47676-6dd7-4324-a696-a9852cf45b52",
+		"name": "shogun",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33044110"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "sucess",
+					"item": [
+						{
+							"name": "loginAdmin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenAdmin\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"sysadmin@qacoders.com\",\r\n    \"password\": \"1234@Test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}login/",
+									"host": [
+										"{{urlShogun}}login"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "validateToken",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{urlFallout}}validateToken/",
+									"host": [
+										"{{urlFallout}}validateToken"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "{{tokenAdmin}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "sucess",
+					"item": [
+						{
+							"name": "loginAdmin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenAdmin\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"sysadmin@qacoders.com\",\r\n    \"password\": \"1234@Test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}login/",
+									"host": [
+										"{{urlShogun}}login"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userRegister",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"fullName\": \"Alana Lopes\",\n  \"mail\": \"alana@teste.com.br\",\n  \"accessProfile\": \"ADMIN\",\n  \"cpf\": \"11222243879\",\n  \"password\": \"12345@Alana\",\n  \"confirmPassword\": \"12345@Alana\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}user/",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userLogin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenUser\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"alana@teste.com.br\",\r\n    \"password\": \"12345@Alana\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}login/",
+									"host": [
+										"{{urlShogun}}login"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userEditRegister",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fullName\": \"Alana Martins\",\r\n    \"mail\": \"alana@teste.com.br\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}user/688383f5187166b1f45fcc90",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										"688383f5187166b1f45fcc90"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userEditPassword",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"1234@Alana\",\r\n  \"confirmPassword\": \"1234@Alana\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}user/password/688383f5187166b1f45fcc90",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										"password",
+										"688383f5187166b1f45fcc90"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userEditStatus",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}user/status/688383f5187166b1f45fcc90",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										"status",
+										"688383f5187166b1f45fcc90"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userConsultGeneral",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}user/",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userConsultId",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}user/688383f5187166b1f45fcc90",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										"688383f5187166b1f45fcc90"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userConsultCount",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}user/count",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										"count"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userDeleteId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{urlShogun}}user/68828acb99d72ca4f7ac2dfd",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										"68828acb99d72ca4f7ac2dfd"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "{{tokenAdmin}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "sucess",
+					"item": [
+						{
+							"name": "loginAdmin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenAdmin\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"mail\": \"sysadmin@qacoders.com\",\r\n  \"password\": \"1234@Test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}login/",
+									"host": [
+										"{{urlShogun}}login"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userRegister",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"fullName\": \"Marcos Pera\",\n  \"mail\": \"marcos@test.com.br\",\n  \"accessProfile\": \"ADMIN\",\n  \"cpf\": \"11292234438\",\n  \"password\": \"12345@Marco\",\n  \"confirmPassword\": \"12345@Marco\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}user/",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userLogin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenUser\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"marcos@test.com.br\",\r\n    \"password\": \"12345@Marco\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}login/",
+									"host": [
+										"{{urlShogun}}login"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "companyRegister",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"corporateName\": \"Pequi de Paris\",\r\n    \"registerCompany\": \"12126456000159\",\r\n    \"mail\": \"pequi@testes.com\",\r\n    \"matriz\": \"Teste\",\r\n    \"responsibleContact\": \"Marcos Luan\",\r\n    \"telephone\": \"99999999999998\",\r\n    \"serviceDescription\": \"Teste\",\r\n    \"address\": [\r\n        {\r\n            \"zipCode\": \"04777007\",\r\n            \"city\": \"São Paulo\",\r\n            \"state\": \"SP\",\r\n            \"district\": \"Beco das Orquideas\",\r\n            \"street\": \"Avenida Inter\",\r\n            \"number\": \"1234567892\",\r\n            \"complement\": \"de 4503 ao fim - lado par\",\r\n            \"country\": \"Brasil\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}company/",
+									"host": [
+										"{{urlShogun}}company"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "companyEditRegister",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"corporateName\": \"Pequi do Amazonas\",\r\n  \"registerCompany\": \"12169456000168\",\r\n  \"mail\": \"test@teste6.com\",\r\n  \"matriz\": \"Teste\",\r\n  \"responsibleContact\": \"Marcio Marcos\",\r\n  \"telephone\": \"99999999999994\",\r\n  \"serviceDescription\": \"Teste\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}company/68838834187166b1f45fccd9",
+									"host": [
+										"{{urlShogun}}company"
+									],
+									"path": [
+										"68838834187166b1f45fccd9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "companyAddressId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"address\": [\r\n    {\r\n      \"zipCode\": \"04777008\",\r\n      \"city\": \"São Paulo\",\r\n      \"state\": \"SP\",\r\n      \"district\": \"Rua Flores\",\r\n      \"street\": \"Avenida Interlagos\",\r\n      \"number\": \"5030708091\",\r\n      \"complement\": \"de 4503 ao fim - lado ímpar\",\r\n      \"country\": \"Brasil\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}company/address/68838834187166b1f45fccd9",
+									"host": [
+										"{{urlShogun}}company"
+									],
+									"path": [
+										"address",
+										"68838834187166b1f45fccd9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "companyStatusId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"status\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}company/status/68838834187166b1f45fccd9",
+									"host": [
+										"{{urlShogun}}company"
+									],
+									"path": [
+										"status",
+										"68838834187166b1f45fccd9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "companyListGeneral",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}company/",
+									"host": [
+										"{{urlShogun}}company"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "companyListCount",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}company/count",
+									"host": [
+										"{{urlShogun}}company"
+									],
+									"path": [
+										"count"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "companyListId",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}company/68838834187166b1f45fccd9",
+									"host": [
+										"{{urlShogun}}company"
+									],
+									"path": [
+										"68838834187166b1f45fccd9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "companyDelete",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{urlFallout}}company/6882d11a187166b1f45fcafd",
+									"host": [
+										"{{urlFallout}}company"
+									],
+									"path": [
+										"6882d11a187166b1f45fcafd"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "{{tokenAdmin}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Board",
+			"item": [
+				{
+					"name": "sucess",
+					"item": [
+						{
+							"name": "loginAdmin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenAdmin\", pm.response.json().token);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"mail\": \"sysadmin@qacoders.com\",\r\n  \"password\": \"1234@Test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}login/",
+									"host": [
+										"{{urlShogun}}login"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userRegister",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"fullName\": \"Marcio Luis Coimbras\",\n  \"mail\": \"coimbras@testal.com.br\",\n  \"accessProfile\": \"ADMIN\",\n  \"cpf\": \"11222243318\",\n  \"password\": \"1231@Testa26\",\n  \"confirmPassword\": \"1231@Testa26\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}user/",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userLogin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenUser\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"coimbras@testal.com.br\",\r\n    \"password\": \"1231@Testa26\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}login/",
+									"host": [
+										"{{urlShogun}}login"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "boardRegister",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"boardName\": \"Sindicância\"\r\n}"
+								},
+								"url": {
+									"raw": "{{urlShogun}}board/",
+									"host": [
+										"{{urlShogun}}board"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "boardListGeneral",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}board/",
+									"host": [
+										"{{urlShogun}}board"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "boardListCount",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{urlShogun}}board/count",
+									"host": [
+										"{{urlShogun}}board"
+									],
+									"path": [
+										"count"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "boardListId",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}board/68838a6b187166b1f45fcd3b",
+									"host": [
+										"{{urlShogun}}board"
+									],
+									"path": [
+										"68838a6b187166b1f45fcd3b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "boardEditRegister",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"boardName\": \"PAD\"\r\n}"
+								},
+								"url": {
+									"raw": "{{urlShogun}}board/68838a6b187166b1f45fcd3b",
+									"host": [
+										"{{urlShogun}}board"
+									],
+									"path": [
+										"68838a6b187166b1f45fcd3b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "{{tokenAdmin}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "CostCenter",
+			"item": [
+				{
+					"name": "sucess",
+					"item": [
+						{
+							"name": "loginAdmin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenAdmin\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"mail\": \"sysadmin@qacoders.com\",\r\n  \"password\": \"1234@Test\"\r\n}"
+								},
+								"url": {
+									"raw": "{{urlShogun}}login",
+									"host": [
+										"{{urlShogun}}login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userRegister",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"fullName\": \"Caio de Cesar\",\n  \"mail\": \"caio1@testa.com\",\n  \"accessProfile\": \"ADMIN\",\n  \"cpf\": \"11242344318\",\n  \"password\": \"caio1@Test27\",\n  \"confirmPassword\": \"caio1@Test27\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}user/",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userLogin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenUser\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"caio1@testa.com\",\r\n    \"password\": \"caio1@Test27\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}login/",
+									"host": [
+										"{{urlShogun}}login"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "costCenterRegister",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"costCenterName\": \"alimentos\",\r\n    \"boardId\": \"68838a6b187166b1f45fcd3b\"\r\n}"
+								},
+								"url": {
+									"raw": "{{urlShogun}}costCenter/",
+									"host": [
+										"{{urlShogun}}costCenter"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "costCenterGeneral",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}costCenter/",
+									"host": [
+										"{{urlShogun}}costCenter"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "costCenterCount",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}costCenter/count",
+									"host": [
+										"{{urlShogun}}costCenter"
+									],
+									"path": [
+										"count"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "costCenterId",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}costCenter/68838b61187166b1f45fcd63",
+									"host": [
+										"{{urlShogun}}costCenter"
+									],
+									"path": [
+										"68838b61187166b1f45fcd63"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "costCenterEditId",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"costCenterName\": \"Transporte\",\r\n  \"boardId\": \"68838a6b187166b1f45fcd3b\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}costCenter/68838b61187166b1f45fcd63",
+									"host": [
+										"{{urlShogun}}costCenter"
+									],
+									"path": [
+										"68838b61187166b1f45fcd63"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "costCenterEditStatusId",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}costCenter/status/68838b61187166b1f45fcd63",
+									"host": [
+										"{{urlShogun}}costCenter"
+									],
+									"path": [
+										"status",
+										"68838b61187166b1f45fcd63"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					},
+					{
+						"key": "value",
+						"value": "{{tokenAdmin}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "department",
+			"item": [
+				{
+					"name": "sucess",
+					"item": [
+						{
+							"name": "loginAdmin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenAdmin\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"mail\": \"sysadmin@qacoders.com\",\r\n  \"password\": \"1234@Test\"\r\n}"
+								},
+								"url": {
+									"raw": "{{urlShogun}}login",
+									"host": [
+										"{{urlShogun}}login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userRegister",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"fullName\": \"CaioCesar\",\n  \"mail\": \"caio2@test.com\",\n  \"accessProfile\": \"ADMIN\",\n  \"cpf\": \"11242344314\",\n  \"password\": \"caio2@Test27\",\n  \"confirmPassword\": \"caio2@Test27\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}user/",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userLogin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenUser\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"caio2@test.com\",\r\n    \"password\": \"caio2@Test27\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}login/",
+									"host": [
+										"{{urlShogun}}login"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "departmentRegister",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"departmentName\": \"Tesouraria\",\r\n  \"costCenterId\": \"68838b61187166b1f45fcd63\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}department/",
+									"host": [
+										"{{urlShogun}}department"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "departmentListGeneral",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}department/",
+									"host": [
+										"{{urlShogun}}department"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "departmentCount",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}department/count",
+									"host": [
+										"{{urlShogun}}department"
+									],
+									"path": [
+										"count"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "departmentListId",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{urlShogun}}department/68838f6a187166b1f45fcdbc",
+									"host": [
+										"{{urlShogun}}department"
+									],
+									"path": [
+										"68838f6a187166b1f45fcdbc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "departmentEditRegister",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"departmentName\": \"Auditoria\",\r\n  \"costCenterId\": \"68838b61187166b1f45fcd63\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}department/68838f6a187166b1f45fcdbc",
+									"host": [
+										"{{urlShogun}}department"
+									],
+									"path": [
+										"68838f6a187166b1f45fcdbc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "departmentStatusId",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"status\": fase\r\n}"
+								},
+								"url": {
+									"raw": "{{urlShogun}}department/status/68838f6a187166b1f45fcdbc",
+									"host": [
+										"{{urlShogun}}department"
+									],
+									"path": [
+										"status",
+										"68838f6a187166b1f45fcdbc"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					},
+					{
+						"key": "value",
+						"value": "{{tokenAdmin}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "sucess",
+					"item": [
+						{
+							"name": "loginAdmin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenAdmin\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"sysadmin@qacoders.com\",\r\n    \"password\": \"1234@Test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}login",
+									"host": [
+										"{{urlShogun}}login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userRegister",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODY0NWE4YmI4OWEyYWViNmE1OTRkOWQiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRiT3BGRTkxRktLa2R1RVpuQ0RTcmMuNlRINFp0QkhvSVJOempFaUlsZmFUTEdVak00dXVSUyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAwMS8wNy8yMDI1LCAxOTowMDo0MiBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4NjQ1YThiYjg5YTJhZWI2YTU5NGQ5ZSJ9XSwiX192IjowLCJpYXQiOjE3NTI2MTkxMDUsImV4cCI6MTc1MjcwNTUwNX0.6tUr_9jqJlBy21q0IINOApI6yDdAuixOpEdCR8oHIOc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"fullName\": \"Marcio Gervásio\",\n  \"mail\": \"test@testa14.com.br\",\n  \"accessProfile\": \"ADMIN\",\n  \"cpf\": \"11222233387\",\n  \"password\": \"1234@Testa13\",\n  \"confirmPassword\": \"1234@Testa13\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}user/",
+									"host": [
+										"{{urlShogun}}user"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "userLogin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"tokenUser\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mail\": \"test@testa14.com.br\",\r\n    \"password\": \"1234@Testa13\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}login/",
+									"host": [
+										"{{urlShogun}}login"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clientRegister",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullName\": \"Gustavo Slavo\",\r\n  \"birthDate\": \"24082001\",\r\n  \"mail\": \"gustavo@tesat.com\",\r\n  \"phone\": \"5591777596579\",\r\n  \"currentRole\": \"ADMIN\",\r\n  \"documents\": [\r\n    {\r\n      \"rg\": \"6306798\",\r\n      \"cpf\": \"00070880001\"\r\n    }\r\n  ],\r\n  \"address\": [\r\n    {\r\n      \"country\": \"Brasil\",\r\n      \"zipCode\": \"61025639\",\r\n      \"city\": \"Belém\",\r\n      \"state\": \"PA\",\r\n      \"district\": \"São Brás\",\r\n      \"street\": \"Rua 8 de Maio\",\r\n      \"number\": \"1234567891\",\r\n      \"complement\": \"Hospital do Coração\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}client/",
+									"host": [
+										"{{urlShogun}}client"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clientRegisterGeneral",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{urlShogun}}client/",
+									"host": [
+										"{{urlShogun}}client"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clientCount",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{urlShogun}}client/count",
+									"host": [
+										"{{urlShogun}}client"
+									],
+									"path": [
+										"count"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clientId",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{urlShogun}}client/688396e7187166b1f45fce40",
+									"host": [
+										"{{urlShogun}}client"
+									],
+									"path": [
+										"688396e7187166b1f45fce40"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clientEditRegister",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullName\": \"Gervásio Santos Marcos\",\r\n  \"birthDate\": \"24082001\",\r\n  \"mail\": \"testo@tesat2.com\",\r\n  \"phone\": \"5591777596589\",\r\n  \"currentRole\": \"ADMIN\",\r\n  \"documents\": [\r\n    {\r\n      \"rg\": \"6306799\",\r\n      \"cpf\": \"00070880004\"\r\n    }\r\n  ],\r\n  \"address\": [\r\n    {\r\n      \"country\": \"Brasil\",\r\n      \"zipCode\": \"61025631\",\r\n      \"city\": \"Belém\",\r\n      \"state\": \"PA\",\r\n      \"district\": \"Brás\",\r\n      \"street\": \"Rua 8 de Maio\",\r\n      \"number\": \"1234567891\",\r\n      \"complement\": \"Hospital do Coração\"\r\n    }\r\n  ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}client//688396e7187166b1f45fce40",
+									"host": [
+										"{{urlShogun}}client"
+									],
+									"path": [
+										"",
+										"688396e7187166b1f45fce40"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clientDelete",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenUser}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlShogun}}client/68839b38187166b1f45fce6b",
+									"host": [
+										"{{urlShogun}}client"
+									],
+									"path": [
+										"68839b38187166b1f45fce6b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					},
+					{
+						"key": "value",
+						"value": "{{tokenAdmin}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

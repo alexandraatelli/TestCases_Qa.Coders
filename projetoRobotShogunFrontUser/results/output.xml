@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-22T14:27:47.793327" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\projetosRobot\projetoRobotShogunRodLima\tests">
+<suite id="s1-s1" name="Tests" source="C:\projetosRobot\projetoRobotShogunRodLima\tests\tests.robot">
+<test id="s1-s1-t1" name="Cenario de teste: login de usuario perfil administrador com sucesso" line="8">
+<kw name="Abrir o navegador" owner="tests" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-22T14:27:48.052166" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-22T14:27:48.051954" elapsed="1.315229"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-22T14:27:49.367666" elapsed="0.042843"/>
+</kw>
+<status status="PASS" start="2025-08-22T14:27:48.051379" elapsed="1.359250"/>
+</kw>
+<kw name="Passo 1 - Acessa a pagina login" owner="tests">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-22T14:27:49.411700" level="INFO">Opening url 'https://shogun.qacoders.dev.br/login'</msg>
+<arg>url=${urlBase}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-22T14:27:49.411522" elapsed="2.618272"/>
+</kw>
+<status status="PASS" start="2025-08-22T14:27:49.411208" elapsed="2.618746"/>
+</kw>
+<kw name="Passo 2 - Digitar um e-mail valido" owner="tests">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${emaiInput}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-22T14:27:52.030989" elapsed="0.095158"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-22T14:27:52.126880" level="INFO">Typing text 'sysadmin@qacoders.com' into text field 'id=email'.</msg>
+<arg>locator=${emaiInput}</arg>
+<arg>text=${emailValido}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-22T14:27:52.126448" elapsed="0.231148"/>
+</kw>
+<status status="PASS" start="2025-08-22T14:27:52.030521" elapsed="0.327248"/>
+</kw>
+<kw name="Passo 3 - Digitar uma senha valida" owner="tests">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${senhaInput}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-22T14:27:52.358954" elapsed="0.049193"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-08-22T14:27:52.408777" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg time="2025-08-22T14:27:52.452036" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>locator=${senhaInput}</arg>
+<arg>password=${senhaValida}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-22T14:27:52.408306" elapsed="0.119184"/>
+</kw>
+<status status="PASS" start="2025-08-22T14:27:52.358249" elapsed="0.169415"/>
+</kw>
+<kw name="Passo 4 - Clicar no botao entrar" owner="tests">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=${botaoInput}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-22T14:27:52.528553" elapsed="0.025441"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-22T14:27:52.554432" level="INFO">Clicking button 'id=login'.</msg>
+<arg>locator=${botaoInput}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-22T14:27:52.554176" elapsed="0.129707"/>
+</kw>
+<status status="PASS" start="2025-08-22T14:27:52.528099" elapsed="0.156022"/>
+</kw>
+<kw name="Passo 5 - Verificar se realmente entrou no sistema" owner="tests">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>text=Logout</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-22T14:27:52.685333" elapsed="0.917465"/>
+</kw>
+<status status="PASS" start="2025-08-22T14:27:52.684760" elapsed="0.918201"/>
+</kw>
+<kw name="Fechar o navegador" owner="tests" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-22T14:27:53.604130" elapsed="2.276134"/>
+</kw>
+<status status="PASS" start="2025-08-22T14:27:53.603747" elapsed="2.276652"/>
+</kw>
+<status status="PASS" start="2025-08-22T14:27:48.050446" elapsed="7.830379"/>
+</test>
+<status status="PASS" start="2025-08-22T14:27:47.824287" elapsed="8.058404"/>
+</suite>
+<status status="PASS" start="2025-08-22T14:27:47.795162" elapsed="8.088920"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="1" fail="0" skip="0">Tests</stat>
+<stat name="Tests" id="s1-s1" pass="1" fail="0" skip="0">Tests.Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

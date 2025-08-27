@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-19T13:12:08.913593" rpa="false" schemaversion="5">
+<suite id="s1" name="Delete.User.Id.Resource" source="c:\projetosRobot\projeto-robot\tests\delete.user.id.resource.robot">
+<test id="s1-t1" name="CT10-Deletar usuario pelo ID" line="11">
+<kw name="Deletar usuario pelo ID" owner="delete.user.id">
+<kw name="Realizar Login ADMIN" owner="login">
+<kw name="Criar Sessao" owner="login">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T13:12:09.205604" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T13:12:09.205250" elapsed="0.002317"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-19T13:12:09.208350" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-19T13:12:09.207874" elapsed="0.000849"/>
+</kw>
+<status status="PASS" start="2025-08-19T13:12:09.204864" elapsed="0.004045"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T13:12:09.209437" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<var>${body}</var>
+<arg>mail=${EMAIL}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T13:12:09.209093" elapsed="0.000471"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T13:12:09.209955" level="INFO">{'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T13:12:09.209750" elapsed="0.000326"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-19T13:12:10.916738" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '58'} 
+ body=b'{"mail": "sysadmin@qacoders.com", "password": "1234@Test"}' 
+ </msg>
+<msg time="2025-08-19T13:12:10.917080" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login 
+ status=200, reason=OK 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '1322', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 19 Aug 2025 16:12:02 GMT', 'Etag': 'W/"52a-K6jV/NzromM43NhUpu54KcQGHvU"', 'X-Powered-By': 'Express'} 
+ body={"msg":"Olá Qa-Coders-SYSADMIN, autenticação autorizada com sucesso!","user":{"_id":"6886c3bb2b4b1a0ca46395e6","fullName":"Qa-Coders-SYSADMIN","mail":"sysadmin@qacoders.com","password":"$2b$10$SxdyqSwUVCQXc52P8Y/DteUXO5VKH7RpZvF1tHVvOv1vFQewzAdMy","accessProfile":"SYSADMIN","cpf":"11111111111","status":true,"audit":[{"registeredBy":{"userId":"111111111111111111","userLogin":"sysadmin@qacoders.com"},"registrationDate":"domingo, 27/07/2025, 21:26:35 BRT","registrationNumber":"01","companyId":"Qa.Coders","_id":"6886c3bb2b4b1a0ca46395e7"}],"__v":0},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRTeGR5cVN3VVZDUVhjNTJQOFkvRHRlVVhPNVZLSDdScFp2RjF0SFZ2T3YxdkZRZXd6QWRNeSIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoiZG9taW5nbywgMjcvMDcvMjAyNSwgMjE6MjY6MzUgQlJUIiwicmVnaXN0cmF0aW9uTnVtYmVyIjoiMDEiLCJjb21wYW55SWQiOiJRYS5Db2RlcnMiLCJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTcifV0sIl9fdiI6MCwiaWF0IjoxNzU1NjE5OTIyLCJleHAiOjE3NTU3MDYzMjJ9.jheYHowsKsqP5dZPsbRIrdM0jv3oWZWunT8AFVbolwc"} 
+ </msg>
+<msg time="2025-08-19T13:12:10.917344" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-19T13:12:09.210233" elapsed="1.707208"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T13:12:10.918799" level="INFO">{'msg': 'Olá Qa-Coders-SYSADMIN, autenticação autorizada com sucesso!', 'user': {'_id': '6886c3bb2b4b1a0ca46395e6', 'fullName': 'Qa-Coders-SYSADMIN', 'mail': 'sysadmin@qacoders.com', 'password': '$2b$10$SxdyqSwUVCQXc52P8Y/DteUXO5VKH7RpZvF1tHVvOv1vFQewzAdMy', 'accessProfile': 'SYSADMIN', 'cpf': '11111111111', 'status': True, 'audit': [{'registeredBy': {'userId': '111111111111111111', 'userLogin': 'sysadmin@qacoders.com'}, 'registrationDate': 'domingo, 27/07/2025, 21:26:35 BRT', 'registrationNumber': '01', 'companyId': 'Qa.Coders', '_id': '6886c3bb2b4b1a0ca46395e7'}], '__v': 0}, 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRTeGR5cVN3VVZDUVhjNTJQOFkvRHRlVVhPNVZLSDdScFp2RjF0SFZ2T3YxdkZRZXd6QWRNeSIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoiZG9taW5nbywgMjcvMDcvMjAyNSwgMjE6MjY6MzUgQlJUIiwicmVnaXN0cmF0aW9uTnVtYmVyIjoiMDEiLCJjb21wYW55SWQiOiJRYS5Db2RlcnMiLCJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTcifV0sIl9fdiI6MCwiaWF0IjoxNzU1NjE5OTIyLCJleHAiOjE3NTU3MDYzMjJ9.jheYHowsKsqP5dZPsbRIrdM0jv3oWZWunT8AFVbolwc'}</msg>
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T13:12:10.917700" elapsed="0.001268"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-19T13:12:10.919765" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRTeGR5cVN...</msg>
+<var>${TOKEN}</var>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-19T13:12:10.919127" elapsed="0.000722"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-08-19T13:12:10.920147" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRTeGR5cVN...</msg>
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-08-19T13:12:10.919971" elapsed="0.000252"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-19T13:12:10.920823" level="INFO">${user_id} = 6886c3bb2b4b1a0ca46395e6</msg>
+<var>${user_id}</var>
+<arg>${resposta.json()['user']['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-19T13:12:10.920320" elapsed="0.000847"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-08-19T13:12:10.921463" level="INFO">${user_id} = 6886c3bb2b4b1a0ca46395e6</msg>
+<arg>${user_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-08-19T13:12:10.921294" elapsed="0.000433"/>
+</kw>
+<status status="PASS" start="2025-08-19T13:12:09.204615" elapsed="1.717233"/>
+</kw>
+<kw name="Cadastrar Novo Usuario e Salvar ID" owner="criar.user">
+<kw name="Realizar Login ADMIN" owner="login">
+<kw name="Criar Sessao" owner="login">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T13:12:10.922818" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T13:12:10.922648" elapsed="0.000252"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-19T13:12:10.923236" level="INFO">Creating Session using : alias=shogun, url=https://api-shogun.qacoders.dev.br/api, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=shogun</arg>
+<arg>url=${URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-19T13:12:10.923009" elapsed="0.000406"/>
+</kw>
+<status status="PASS" start="2025-08-19T13:12:10.922477" elapsed="0.001020"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T13:12:10.923799" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<var>${body}</var>
+<arg>mail=${EMAIL}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T13:12:10.923605" elapsed="0.000260"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T13:12:10.924083" level="INFO">{'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T13:12:10.923968" elapsed="0.000186"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-19T13:12:11.628223" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '58'} 
+ body=b'{"mail": "sysadmin@qacoders.com", "password": "1234@Test"}' 
+ </msg>
+<msg time="2025-08-19T13:12:11.628660" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/login 
+ status=200, reason=OK 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '1322', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 19 Aug 2025 16:12:02 GMT', 'Etag': 'W/"52a-UIbR84q6ifIwatCAAWTZ3agOkx8"', 'X-Powered-By': 'Express'} 
+ body={"msg":"Olá Qa-Coders-SYSADMIN, autenticação autorizada com sucesso!","user":{"_id":"6886c3bb2b4b1a0ca46395e6","fullName":"Qa-Coders-SYSADMIN","mail":"sysadmin@qacoders.com","password":"$2b$10$SxdyqSwUVCQXc52P8Y/DteUXO5VKH7RpZvF1tHVvOv1vFQewzAdMy","accessProfile":"SYSADMIN","cpf":"11111111111","status":true,"audit":[{"registeredBy":{"userId":"111111111111111111","userLogin":"sysadmin@qacoders.com"},"registrationDate":"domingo, 27/07/2025, 21:26:35 BRT","registrationNumber":"01","companyId":"Qa.Coders","_id":"6886c3bb2b4b1a0ca46395e7"}],"__v":0},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRTeGR5cVN3VVZDUVhjNTJQOFkvRHRlVVhPNVZLSDdScFp2RjF0SFZ2T3YxdkZRZXd6QWRNeSIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoiZG9taW5nbywgMjcvMDcvMjAyNSwgMjE6MjY6MzUgQlJUIiwicmVnaXN0cmF0aW9uTnVtYmVyIjoiMDEiLCJjb21wYW55SWQiOiJRYS5Db2RlcnMiLCJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTcifV0sIl9fdiI6MCwiaWF0IjoxNzU1NjE5OTIzLCJleHAiOjE3NTU3MDYzMjN9.C2IOVIFc4x3kmsERW8FtLkfrLeLVpQOZCEact9zl6kY"} 
+ </msg>
+<msg time="2025-08-19T13:12:11.629007" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/login</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-19T13:12:10.924250" elapsed="0.704930"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T13:12:11.630735" level="INFO">{'msg': 'Olá Qa-Coders-SYSADMIN, autenticação autorizada com sucesso!', 'user': {'_id': '6886c3bb2b4b1a0ca46395e6', 'fullName': 'Qa-Coders-SYSADMIN', 'mail': 'sysadmin@qacoders.com', 'password': '$2b$10$SxdyqSwUVCQXc52P8Y/DteUXO5VKH7RpZvF1tHVvOv1vFQewzAdMy', 'accessProfile': 'SYSADMIN', 'cpf': '11111111111', 'status': True, 'audit': [{'registeredBy': {'userId': '111111111111111111', 'userLogin': 'sysadmin@qacoders.com'}, 'registrationDate': 'domingo, 27/07/2025, 21:26:35 BRT', 'registrationNumber': '01', 'companyId': 'Qa.Coders', '_id': '6886c3bb2b4b1a0ca46395e7'}], '__v': 0}, 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRTeGR5cVN3VVZDUVhjNTJQOFkvRHRlVVhPNVZLSDdScFp2RjF0SFZ2T3YxdkZRZXd6QWRNeSIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoiZG9taW5nbywgMjcvMDcvMjAyNSwgMjE6MjY6MzUgQlJUIiwicmVnaXN0cmF0aW9uTnVtYmVyIjoiMDEiLCJjb21wYW55SWQiOiJRYS5Db2RlcnMiLCJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTcifV0sIl9fdiI6MCwiaWF0IjoxNzU1NjE5OTIzLCJleHAiOjE3NTU3MDYzMjN9.C2IOVIFc4x3kmsERW8FtLkfrLeLVpQOZCEact9zl6kY'}</msg>
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T13:12:11.629473" elapsed="0.001474"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-19T13:12:11.631883" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRTeGR5cVN...</msg>
+<var>${TOKEN}</var>
+<arg>${resposta.json()["token"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-19T13:12:11.631183" elapsed="0.000784"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-08-19T13:12:11.632265" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRTeGR5cVN...</msg>
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-08-19T13:12:11.632094" elapsed="0.000248"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-19T13:12:11.632953" level="INFO">${user_id} = 6886c3bb2b4b1a0ca46395e6</msg>
+<var>${user_id}</var>
+<arg>${resposta.json()['user']['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-19T13:12:11.632438" elapsed="0.000589"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-08-19T13:12:11.633305" level="INFO">${user_id} = 6886c3bb2b4b1a0ca46395e6</msg>
+<arg>${user_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-08-19T13:12:11.633152" elapsed="0.000223"/>
+</kw>
+<status status="PASS" start="2025-08-19T13:12:10.922255" elapsed="0.711477"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T13:12:11.634107" level="INFO">${body} = {'fullName': 'Silvana Merlin', 'mail': 'merlin@uol.com.br', 'accessProfile': 'ADMIN', 'cpf': '59020404980', 'password': 'merlin#Si12', 'confirmPassword': 'merlin#Si12'}</msg>
+<var>${body}</var>
+<arg>fullName=Silvana Merlin</arg>
+<arg>mail=merlin@uol.com.br</arg>
+<arg>accessProfile=ADMIN</arg>
+<arg>cpf=59020404980</arg>
+<arg>password=merlin#Si12</arg>
+<arg>confirmPassword=merlin#Si12</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T13:12:11.633874" elapsed="0.001092"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T13:12:11.635347" level="INFO">{'fullName': 'Silvana Merlin', 'mail': 'merlin@uol.com.br', 'accessProfile': 'ADMIN', 'cpf': '59020404980', 'password': 'merlin#Si12', 'confirmPassword': 'merlin#Si12'}</msg>
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T13:12:11.635155" elapsed="0.000300"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T13:12:11.635837" level="INFO">${headers} = {'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6...</msg>
+<var>${headers}</var>
+<arg>Authorization=${TOKEN}</arg>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T13:12:11.635586" elapsed="0.000339"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-19T13:12:12.520335" level="INFO">POST Request : url=https://api-shogun.qacoders.dev.br/api/user 
+ path_url=/api/user 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRTeGR5cVN3VVZDUVhjNTJQOFkvRHRlVVhPNVZLSDdScFp2RjF0SFZ2T3YxdkZRZXd6QWRNeSIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoiZG9taW5nbywgMjcvMDcvMjAyNSwgMjE6MjY6MzUgQlJUIiwicmVnaXN0cmF0aW9uTnVtYmVyIjoiMDEiLCJjb21wYW55SWQiOiJRYS5Db2RlcnMiLCJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTcifV0sIl9fdiI6MCwiaWF0IjoxNzU1NjE5OTIzLCJleHAiOjE3NTU3MDYzMjN9.C2IOVIFc4x3kmsERW8FtLkfrLeLVpQOZCEact9zl6kY', 'Content-Length': '168'} 
+ body=b'{"fullName": "Silvana Merlin", "mail": "merlin@uol.com.br", "accessProfile": "ADMIN", "cpf": "59020404980", "password": "merlin#Si12", "confirmPassword": "merlin#Si12"}' 
+ </msg>
+<msg time="2025-08-19T13:12:12.520654" level="INFO">POST Response : url=https://api-shogun.qacoders.dev.br/api/user 
+ status=201, reason=Created 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '455', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 19 Aug 2025 16:12:03 GMT', 'Etag': 'W/"1c7-jgvkgFYK5OoL/jRwlirrEkA4IeA"', 'X-Powered-By': 'Express'} 
+ body={"msg":"Olá Silvana Merlin, cadastro realizado com sucesso.","user":{"_id":"68a4a253d477c7609b3e1a74","fullName":"Silvana Merlin","mail":"merlin@uol.com.br","accessProfile":"ADMIN","cpf":"59020404980","status":true,"audit":[{"registeredBy":{"userId":"6886c3bb2b4b1a0ca46395e6","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 19/08/2025, 13:12:03 BRT","registrationNumber":"QaCoders-208","_id":"68a4a253d477c7609b3e1a75"}],"__v":0}} 
+ </msg>
+<msg time="2025-08-19T13:12:12.520885" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/user</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-19T13:12:11.636038" elapsed="0.884939"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T13:12:12.522184" level="INFO">{'msg': 'Olá Silvana Merlin, cadastro realizado com sucesso.', 'user': {'_id': '68a4a253d477c7609b3e1a74', 'fullName': 'Silvana Merlin', 'mail': 'merlin@uol.com.br', 'accessProfile': 'ADMIN', 'cpf': '59020404980', 'status': True, 'audit': [{'registeredBy': {'userId': '6886c3bb2b4b1a0ca46395e6', 'userLogin': 'sysadmin@qacoders.com'}, 'registrationDate': 'terça-feira, 19/08/2025, 13:12:03 BRT', 'registrationNumber': 'QaCoders-208', '_id': '68a4a253d477c7609b3e1a75'}], '__v': 0}}</msg>
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T13:12:12.521198" elapsed="0.001144"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-08-19T13:12:12.523111" level="INFO">${USER_ID} = 68a4a253d477c7609b3e1a74</msg>
+<arg>${USER_ID}</arg>
+<arg>${resposta.json()["user"]["_id"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-08-19T13:12:12.522503" elapsed="0.000699"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-08-19T13:12:12.524007" level="INFO">${USER_FULLNAME} = Silvana Merlin</msg>
+<arg>${USER_FULLNAME}</arg>
+<arg>${resposta.json()["user"]["fullName"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-08-19T13:12:12.523309" elapsed="0.000793"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-08-19T13:12:12.524977" level="INFO">${USER_EMAIL} = merlin@uol.com.br</msg>
+<arg>${USER_EMAIL}</arg>
+<arg>${resposta.json()["user"]["mail"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-08-19T13:12:12.524206" elapsed="0.000866"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-08-19T13:12:12.525653" level="INFO">${RESPOSTA} = {'msg': 'Olá Silvana Merlin, cadastro realizado com sucesso.', 'user': {'_id': '68a4a253d477c7609b3e1a74', 'fullName': 'Silvana Merlin', 'mail': 'merlin@uol.com.br', 'accessProfile': 'ADMIN', 'cpf': '...</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-08-19T13:12:12.525176" elapsed="0.000566"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>msg</arg>
+<arg>Olá ${USER_FULLNAME}, cadastro realizado com sucesso.</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-08-19T13:12:12.525837" elapsed="0.000174"/>
+</kw>
+<status status="PASS" start="2025-08-19T13:12:10.922018" elapsed="1.604069"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T13:12:12.526375" level="INFO">${headers} = {'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6...</msg>
+<var>${headers}</var>
+<arg>Authorization=${TOKEN}</arg>
+<arg>Accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T13:12:12.526181" elapsed="0.000553"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-08-19T13:12:12.541527" level="INFO">DELETE Request : url=https://api-shogun.qacoders.dev.br/api/user/68a4a253d477c7609b3e1a74 
+ path_url=/api/user/68a4a253d477c7609b3e1a74 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRTeGR5cVN3VVZDUVhjNTJQOFkvRHRlVVhPNVZLSDdScFp2RjF0SFZ2T3YxdkZRZXd6QWRNeSIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoiZG9taW5nbywgMjcvMDcvMjAyNSwgMjE6MjY6MzUgQlJUIiwicmVnaXN0cmF0aW9uTnVtYmVyIjoiMDEiLCJjb21wYW55SWQiOiJRYS5Db2RlcnMiLCJfaWQiOiI2ODg2YzNiYjJiNGIxYTBjYTQ2Mzk1ZTcifV0sIl9fdiI6MCwiaWF0IjoxNzU1NjE5OTIzLCJleHAiOjE3NTU3MDYzMjN9.C2IOVIFc4x3kmsERW8FtLkfrLeLVpQOZCEact9zl6kY', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-08-19T13:12:12.541840" level="INFO">DELETE Response : url=https://api-shogun.qacoders.dev.br/api/user/68a4a253d477c7609b3e1a74 
+ status=200, reason=OK 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '41', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 19 Aug 2025 16:12:03 GMT', 'Etag': 'W/"29-IUA1pAxzyv+fOLNSgXJhr0O2/to"', 'X-Powered-By': 'Express'} 
+ body={"msg":"Usuário deletado com sucesso!."} 
+ </msg>
+<msg time="2025-08-19T13:12:12.542091" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=shogun</arg>
+<arg>url=/user/${USER_ID}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-19T13:12:12.526849" elapsed="0.015330"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T13:12:12.543142" level="INFO">{'msg': 'Usuário deletado com sucesso!.'}</msg>
+<arg>${resposta.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T13:12:12.542358" elapsed="0.000931"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${resposta.json()}</arg>
+<arg>msg</arg>
+<arg>Usuário deletado com sucesso!.</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-08-19T13:12:12.543443" elapsed="0.001177"/>
+</kw>
+<status status="PASS" start="2025-08-19T13:12:09.204227" elapsed="3.340569"/>
+</kw>
+<status status="PASS" start="2025-08-19T13:12:09.203483" elapsed="3.342257"/>
+</test>
+<status status="PASS" start="2025-08-19T13:12:08.917948" elapsed="3.629718"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Delete.User.Id.Resource" id="s1" pass="1" fail="0" skip="0">Delete.User.Id.Resource</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
